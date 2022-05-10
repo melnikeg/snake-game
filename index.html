@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Snake game</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="rules">
+        <a href="#rules" title="Rules of the game" class="rules__icon">i</a>
+        <div id="rules" class="rules__body">
+            <a href="#" class="rules__close">X</a>
+            <div class="rules__title">Правила игры</div>
+            <div class="rules__text">
+                <p>1. Управляйте змейкой с помощью стрелок на клавиатуре</p> 
+                <p>2. Игру можно поставить на паузу пробелом</p> 
+                <p>3. Старайтесь не "врезаться" в стену и не укусить себя за хвост, иначе проиграете</p> 
+                <p>4. Каждое съеденное яблоко добавляет вам один балл. Каждые следующие 10 баллов увеличивают скорость игры на одну позицию</p> 
+            </div>
+        </div>
+    </div>
     <canvas id="canvas" width="500" height="500"></canvas>
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
     <script>
@@ -42,8 +56,7 @@
         ctx.fillStyle = "Black";
         ctx.textAlign = "left";
         ctx.textBaseline = "top";
-        ctx.fillText("Счёт: " + score, blockSize, blockSize);
-		//ctx.fillText("Скорость: " + speedGame, widthblockSize, blockSize);
+        ctx.fillText("Счёт: " + score, blockSize, blockSize);		
     };
 	function drawSpeed() {
         ctx.font = "20px Arial";
@@ -156,7 +169,8 @@
 			ctx.textBaseline = "middle";
 			ctx.fillText("Пауза", width / 2, height / 2);			
 			ctx.font = "20px Arial";
-			ctx.fillText("Для продолжения жмите стрелки или пробел", width / 2, height / 2 + 50);			
+			ctx.fillText("Для продолжения жмите стрелки или пробел", width / 2, height / 2 + 50);
+            ctx.globalCompositeOperation='destination-over';			
 			return;			
 		} 
 		
