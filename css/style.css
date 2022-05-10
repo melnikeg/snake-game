@@ -3,6 +3,9 @@ body a {
     text-decoration: none;
     color: #000;
 }
+body a:active {
+    background-color: #c4c3d0;
+}
 /* --------------------------------------------- */
 body {
     background-color: #e9e9e9;
@@ -32,6 +35,9 @@ body {
     font-family: monospace; 
     position: relative;  
     z-index: 2;    
+}
+.rules__icon:active {
+    background-color: #c4c3d0;
 }
 .rules__body {
     display: none;
