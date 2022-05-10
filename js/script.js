@@ -260,6 +260,13 @@ function gameLoop() {
 };
 gameLoop();
 
+//  Назначаем переменные для кнопок управления
+    let btnTop = document.querySelector('.btn-top');
+    let btnRight = document.querySelector('.btn-right');
+    let btnBottom = document.querySelector('.btn-bottom');
+    let btnLeft = document.querySelector('.btn-left');
+    let btnStop = document.querySelector('.btn-stop');
+
 //  Преобразуме коды клавиш в направления
 var directions = {        
     32: "stop",
@@ -277,4 +284,39 @@ $("body").keydown(function (event) {
     if (newDirection !== undefined && gameStop) {
         snake.setDirection(newDirection);
     }		
+});
+btnStop.addEventListener('click', () => {
+    var newDirection = "stop";
+    
+    if (newDirection !== undefined && gameStop) {
+        snake.setDirection(newDirection);
+    }	
+});
+btnTop.addEventListener('click', () => {
+    var newDirection = "up";
+    
+    if (newDirection !== undefined && gameStop) {
+        snake.setDirection(newDirection);
+    }	
+});
+btnRight.addEventListener('click', () => {
+    var newDirection = "right";
+    
+    if (newDirection !== undefined && gameStop) {
+        snake.setDirection(newDirection);
+    }	
+});
+btnBottom.addEventListener('click', () => {
+    var newDirection = "down";
+    
+    if (newDirection !== undefined && gameStop) {
+        snake.setDirection(newDirection);
+    }	
+});
+btnLeft.addEventListener('click', () => {
+    var newDirection = "left";
+    
+    if (newDirection !== undefined && gameStop) {
+        snake.setDirection(newDirection);
+    }	
 });
