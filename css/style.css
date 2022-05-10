@@ -8,11 +8,11 @@ body {
     background-color: #e9e9e9;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-.wrapper {
+/* .wrapper {    
     min-height: 100%;
     position: relative;
     overflow: hidden;
-}
+} */
 .rules {
     position: absolute;
     left: 10px;
@@ -26,7 +26,7 @@ body {
     font-size: 45px;
     font-weight: 700;
     text-align: center;  
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 50%;    
     background-color: #c4c3d0;
     font-family: monospace; 
@@ -39,7 +39,7 @@ body {
     bottom: 0;
     left: 0;
     background-color: #c4c3d0;
-    width: 400px;
+    width: 440px;
     border-radius: 5px 5px 5px 30px;
     padding: 30px;
 }
@@ -56,5 +56,77 @@ body {
     font-size: 24px;
 }
 .rules__text {
-    padding: 0 0 15px 0;   
+    padding: 0 0 15px 0;
+}
+
+.control__body {
+    /* position: relative; */
+    width: 500px;    
+    margin: 20px 0 auto 0;
+    display: flex;
+    justify-content: center;
+}
+.control__row {
+    align-self: center;
+    margin: 0 10px 0 10px;
+}
+.control__btn {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #000;
+    background-color: #777;
+    border-radius: 50%;    
+}
+.btn-arrow {
+    position: relative; 
+}
+.btn-arrow::before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;    
+    border: 3px solid #000;
+}
+.btn-left::before {    
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-right: transparent;
+    border-top: transparent;
+} 
+.btn-bottom::before {    
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-left: transparent;
+    border-top: transparent;
+}
+.btn-right::before {    
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-left: transparent;
+    border-bottom: transparent;
+} 
+.btn-top::before {    
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-right: transparent;
+    border-bottom: transparent;
+} 
+.btn-stop {
+    position: relative;
+    margin: 10px 0 10px 0;
+    background-color: red;
+}
+.btn-stop::after {
+    content: 'II';
+    font-size: 38px;
+    font-weight: 600;    
+    position: absolute;    
+    top: 20%;
+    left: 57%;
+}
+.btn-stop::before {
+    content: '';
+    position: absolute;    
+    top: 28%;
+    left: 23%;
+    border: 15px solid transparent;
+    border-left: 25px solid #000;
 }
