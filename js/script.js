@@ -50,6 +50,9 @@ function gameOver() {
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("Конец игры", width / 2, height / 2);
+    ctx.font = "20px Arial";
+    ctx.fillText("Чтобы сыграть ещё раз,", width / 2, height / 2 + 70);
+    ctx.fillText("просто, перезагрузите страницу", width / 2, height / 2 + 100);
     ctx.globalCompositeOperation='destination-over';
 };
 
@@ -100,7 +103,7 @@ var Snake = function () {
         new Block(5, 5),
     ];
     this.direction = "right";
-    this.nextDirection = "right";
+    this.nextDirection = "right";      
     this.oldDirection;
 };
 
@@ -125,7 +128,7 @@ Snake.prototype.move = function () {
     var head = this.segments[0];
     var newHead;		
     this.direction = this.nextDirection;
-            
+    
     if (this.direction === "right") {
         newHead = new Block(head.col + 1, head.row);
         this.oldDirection = this.direction;			
@@ -200,7 +203,7 @@ Snake.prototype.setDirection = function (newDirection) {
         return;
     } else if (this.direction === "left" && newDirection === "right") {
         return;
-    } 
+    }
 /* Серия проверок. Если нажат пробел (пауза), то чтобы "голова" не вернулась назад и не совпала с телом
 иначе игра будет завершена при выполнении метода checkCollision*/        
     else if (newDirection === "left" && this.oldDirection === "right") {
@@ -248,7 +251,7 @@ var apple = new Apple();
 var animationTime = 100;
 var timeoutId;
 var gameStop = true;	
-function gameLoop() {
+function gameLoop() {    
     ctx.clearRect(0, 0, width, height);
     drawScore();
     drawSpeed();
@@ -285,6 +288,7 @@ $("body").keydown(function (event) {
         snake.setDirection(newDirection);
     }		
 });
+
 btnStop.addEventListener('click', () => {
     var newDirection = "stop";
     
