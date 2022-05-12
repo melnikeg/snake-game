@@ -289,7 +289,15 @@ var directions = {
 //  При нажатии на определенную кнопку управления сохраняем событие в переменную
 //  Тело функции пишем тут
 //  Задаем обработчик события keydown (клавиши-стрелки)
-$("body").keydown(function (event) {
+
+// $("body").keydown(function (event) {
+//     var newDirection = directions[event.keyCode];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
+    
+//     if (newDirection !== undefined && gameStop) {
+//         snake.setDirection(newDirection);
+//     }		
+// });
+document.querySelector("body").addEventListener('keydown', (event) => {
     var newDirection = directions[event.keyCode];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
     
     if (newDirection !== undefined && gameStop) {
