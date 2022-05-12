@@ -261,7 +261,15 @@ function gameLoop() {
     drawBorder();
     timeoutId = setTimeout(gameLoop, animationTime);		
 };
-gameLoop();
+let btnStart = document.querySelector('.start-btn');
+let startWrap = document.querySelector('.start-wrap');
+let controlBody = document.querySelector('.control__body');
+btnStart.addEventListener('click', () =>{
+    startWrap.classList.add('deactive');
+    controlBody.classList.add('active');
+    gameLoop();
+})
+
 
 //  Назначаем переменные для кнопок управления
     let btnTop = document.querySelector('.btn-top');
