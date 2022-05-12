@@ -265,11 +265,17 @@ let btnStart = document.querySelector('.start-btn');
 let startWrap = document.querySelector('.start-wrap');
 let controlBody = document.querySelector('.control__body');
 btnStart.addEventListener('click', () =>{
-    startWrap.classList.add('deactive');
-    controlBody.classList.add('active');
+    startWrap.classList.add('deactive');    
     gameLoop();
-})
+});
 
+document.querySelector("body").addEventListener('keydown', funcStart = (event) => {    
+    if (event.code === 'Enter') {
+        startWrap.classList.add('deactive');
+        document.querySelector("body").removeEventListener('keydown', funcStart);
+        gameLoop();            
+    };        
+});
 
 //  Назначаем переменные для кнопок управления
     let btnTop = document.querySelector('.btn-top');
@@ -279,17 +285,26 @@ btnStart.addEventListener('click', () =>{
     let btnStop = document.querySelector('.btn-stop');
 
 //  Преобразуме коды клавиш в направления
+// Старый код для устаревшей функции event.keyCode
+// var directions = {        
+//     32: "stop",
+//     37: "left",
+//     38: "up",
+//     39: "right",
+//     40: "down"
+// };
 var directions = {        
-    32: "stop",
-    37: "left",
-    38: "up",
-    39: "right",
-    40: "down"
+    Space: "stop",
+    ArrowLeft: "left",
+    ArrowUp: "up",
+    ArrowRight: "right",
+    ArrowDown: "down"
 };
 //  При нажатии на определенную кнопку управления сохраняем событие в переменную
 //  Тело функции пишем тут
 //  Задаем обработчик события keydown (клавиши-стрелки)
 
+// Устаревший код с применение jQuery
 // $("body").keydown(function (event) {
 //     var newDirection = directions[event.keyCode];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
     
@@ -297,46 +312,33 @@ var directions = {
 //         snake.setDirection(newDirection);
 //     }		
 // });
+funcGame = (e) => {
+    if (e !== undefined && gameStop) {
+        snake.setDirection(e);
+    }	
+}
 document.querySelector("body").addEventListener('keydown', (event) => {
-    var newDirection = directions[event.keyCode];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }		
+    var newDirection = directions[event.code];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
+    funcGame(newDirection);    		
 });
 
 btnStop.addEventListener('click', () => {
-    var newDirection = "stop";
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }	
+    var newDirection = "stop";    
+    funcGame(newDirection);
 });
 btnTop.addEventListener('click', () => {
-    var newDirection = "up";
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }	
+    var newDirection = "up";    
+    funcGame(newDirection);
 });
 btnRight.addEventListener('click', () => {
-    var newDirection = "right";
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }	
+    var newDirection = "right";    
+    funcGame(newDirection);
 });
 btnBottom.addEventListener('click', () => {
-    var newDirection = "down";
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }	
+    var newDirection = "down";    
+    funcGame(newDirection);	
 });
 btnLeft.addEventListener('click', () => {
-    var newDirection = "left";
-    
-    if (newDirection !== undefined && gameStop) {
-        snake.setDirection(newDirection);
-    }	
+    var newDirection = "left";    
+    funcGame(newDirection);
 });
