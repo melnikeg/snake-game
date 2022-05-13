@@ -263,7 +263,6 @@ function gameLoop() {
 };
 let btnStart = document.querySelector('.start-btn');
 let startWrap = document.querySelector('.start-wrap');
-let controlBody = document.querySelector('.control__body');
 btnStart.addEventListener('click', () =>{
     startWrap.classList.add('deactive');    
     gameLoop();
@@ -277,12 +276,18 @@ document.querySelector("body").addEventListener('keydown', funcStart = (event) =
     };        
 });
 
-//  Назначаем переменные для кнопок управления
+//  Назначаем переменные для кнопок управления одной рукой
     let btnTop = document.querySelector('.btn-top');
     let btnRight = document.querySelector('.btn-right');
     let btnBottom = document.querySelector('.btn-bottom');
     let btnLeft = document.querySelector('.btn-left');
     let btnStop = document.querySelector('.btn-stop');
+//  Назначаем переменные для кнопок управления двумя руками
+    let btnTopCopy = document.querySelector('.btn-top-copy');
+    let btnRightCopy = document.querySelector('.btn-right-copy');
+    let btnBottomCopy = document.querySelector('.btn-bottom-copy');
+    let btnLeftCopy = document.querySelector('.btn-left-copy');
+    let btnStopCopy = document.querySelector('.btn-stop-copy');
 
 //  Преобразуме коды клавиш в направления
 // Старый код для устаревшей функции event.keyCode
@@ -326,7 +331,15 @@ btnStop.addEventListener('click', () => {
     var newDirection = "stop";    
     funcGame(newDirection);
 });
+btnStopCopy.addEventListener('click', () => {
+    var newDirection = "stop";    
+    funcGame(newDirection);
+});
 btnTop.addEventListener('click', () => {
+    var newDirection = "up";    
+    funcGame(newDirection);
+});
+btnTopCopy.addEventListener('click', () => {
     var newDirection = "up";    
     funcGame(newDirection);
 });
@@ -334,11 +347,48 @@ btnRight.addEventListener('click', () => {
     var newDirection = "right";    
     funcGame(newDirection);
 });
+btnRightCopy.addEventListener('click', () => {
+    var newDirection = "right";    
+    funcGame(newDirection);
+});
 btnBottom.addEventListener('click', () => {
+    var newDirection = "down";    
+    funcGame(newDirection);	
+});
+btnBottomCopy.addEventListener('click', () => {
     var newDirection = "down";    
     funcGame(newDirection);	
 });
 btnLeft.addEventListener('click', () => {
     var newDirection = "left";    
     funcGame(newDirection);
+});
+btnLeftCopy.addEventListener('click', () => {
+    var newDirection = "left";    
+    funcGame(newDirection);
+});
+
+let rulesIcon = document.querySelector('.rules__icon');
+rulesIcon.addEventListener('click', () => {
+    rulesIcon.classList.add('rules__icon_active');
+});
+let rulesClose = document.querySelector('.rules__close');
+rulesClose.addEventListener('click', () => {
+    rulesIcon.classList.remove('rules__icon_active');
+});
+let controlTwoHand = document.querySelector('.control__btn-two-hand');
+let controlBodyOneHand = document.querySelector('.control__body-one-hand');
+let controlBodyTwoHand = document.querySelector('.control__body-two-hand');
+controlTwoHand.addEventListener('click', () => {
+    controlTwoHand.classList.add('control__btn-two-hand_active');
+    controlBodyTwoHand.classList.add('active');
+    controlOneHand.classList.remove('control__btn-one-hand_active');
+    controlBodyOneHand.classList.remove('active');
+});
+let controlOneHand = document.querySelector('.control__btn-one-hand');
+controlOneHand.addEventListener('click', () => {
+    controlOneHand.classList.add('control__btn-one-hand_active');
+    controlBodyOneHand.classList.add('active');
+    controlTwoHand.classList.remove('control__btn-two-hand_active');
+    controlBodyTwoHand.classList.remove('active');
 });

@@ -182,6 +182,10 @@ body {
     position: relative;  
     z-index: 30;    
 }
+.rules__icon_active {
+    border: none;
+    visibility: hidden;
+}
 .rules__body {
     display: none;
     position: absolute;
@@ -189,7 +193,7 @@ body {
     left: 0;
     background-color: #c4c3d0;
     width: 440px;
-    border-radius: 5px 5px 5px 30px;
+    border-radius: 10px;
     padding: 0px;    
     box-shadow: 0px 0px 20px #222;
 }
@@ -207,7 +211,7 @@ body {
 .rules__title {
     display: inline-block;
     font-size: 24px;
-    margin: 0 0 15px 144px;   
+    margin: 0 0 15px 141.5px;   
 }
 .rules__text {
     font-size: 16px;
@@ -222,12 +226,57 @@ body {
 .rules__text p:first-child, p:last-child{
     margin: 0;
 }
-
-.control__body {    
-    width: 500px;    
-    margin: 20px 0 auto 0;
+.control__select {
+    width: 500px;
     display: flex;
+    justify-content: space-around;
+    margin: 30px 0 40px 0;
+}
+.control__title{
+    font-size: 18px;
+    padding: 20px 0;
+}
+.btn__hand-control{
+    width: 175px;
+    border: 1px solid rgb(165, 110, 110);
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;    
+    background-color: rgb(202, 153, 153);
+    box-shadow: inset -5px -5px 5px #888;   
+}
+.btn__hand-control:active{
+    box-shadow: none;
+    border: none;
+}
+.control__btn-two-hand {}
+.control__btn-two-hand_active{   
+    box-shadow: 0 0 10px 8px rgb(201, 121, 121), inset -5px -5px 5px #888;
+    border: 2px solid rgb(165, 110, 110);
+}
+.control__btn-one-hand {}
+.control__btn-one-hand_active {
+    box-shadow: 0 0 10px 8px rgb(201, 121, 121), inset -5px -5px 5px #888;
+    border: 2px solid rgb(165, 110, 110);
+ }
+.control__body-one-hand {  
+    display: none;  
+    width: 500px;    
+    margin: 20px 0 auto 0;    
     justify-content: center;
+}
+
+.control__body-two-hand{
+    display: none;
+    /* display: flex; */
+    justify-content: space-around;
+    width: 500px;    
+    margin: 50px 0 auto 0;    
+    
+}
+.active {
+    display: flex;
 }
 .control__row {
     align-self: center;
@@ -292,4 +341,11 @@ body {
     left: 23%;
     border: 15px solid transparent;
     border-left: 25px solid #000;
+}
+.btn-stop__two-hand-control{
+    border-radius: 20px;
+    width: 140px;
+}
+.control__btn_two-hand-control:nth-child(1), :nth-child(4) {
+    margin: 0 0 60px 0;
 }

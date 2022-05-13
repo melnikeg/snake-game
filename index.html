@@ -23,7 +23,12 @@
             </div>
         </div>        
         <canvas id="canvas" width="500" height="500"></canvas>
-        <div class="control__body">
+        <div class="control__select">
+            <div class="control__btn-one-hand btn__hand-control control__btn-one-hand_active">одной рукой</div>
+            <div class="control__title">управление</div>
+            <div class="control__btn-two-hand btn__hand-control">двумя руками</div>
+        </div>
+        <div class="control__body-one-hand active">            
             <div class="control__row">
                 <div class="control__btn btn-left btn-arrow"></div>
             </div>
@@ -35,6 +40,19 @@
             <div class="control__row">
                 <div class="control__btn btn-right btn-arrow"></div>
             </div>             
+        </div>
+        <div class="control__body-two-hand">
+            <div class="control__row">
+                <div class="control__btn btn-left btn-arrow control__btn_two-hand-control btn-left-copy"></div>
+                <div class="control__btn btn-right btn-arrow control__btn_two-hand-control btn-right-copy"></div>
+            </div>
+            <div class="control__row">                
+                <div class="control__btn btn-stop btn-stop__two-hand-control btn-stop-copy"></div>                
+            </div>
+            <div class="control__row">
+                <div class="control__btn btn-top btn-arrow control__btn_two-hand-control btn-top-copy"></div>
+                <div class="control__btn btn-bottom btn-arrow control__btn_two-hand-control btn-bottom-copy"></div>
+            </div>      
         </div>
         <div class="rules">
             <a href="#rules" title="Rules of the game" class="rules__icon">i</a>
