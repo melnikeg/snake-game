@@ -45,15 +45,22 @@ function drawSpeed() {
 //  Отменяем действие setTimeout и печатаем сообщение "Конец игры"
 function gameOver() {        
     clearTimeout(timeoutId);
-    ctx.font = "60px Arial";
-    ctx.fillStyle = "Black";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("Конец игры", width / 2, height / 2);
-    ctx.font = "20px Arial";
-    ctx.fillText("Чтобы сыграть ещё раз,", width / 2, height / 2 + 70);
-    ctx.fillText("просто, перезагрузите страницу", width / 2, height / 2 + 100);
-    ctx.globalCompositeOperation='destination-over';
+    document.querySelector('.game-over-wrap').classList.remove('deactive');
+    let gameOverText = document.querySelector('.game-over-text');    
+    gameOverText.innerHTML = `  <p>КОНЕЦ ИГРЫ</p>
+                                <p>вы врезались в стену или</p>                    
+                                <p>укусили себя за хвост</p>
+                                <p>ваш счёт: ${score}</p>`;
+    return gameOverValue = true;
+    // ctx.font = "60px Arial";
+    // ctx.fillStyle = "Black";
+    // ctx.textAlign = "center";
+    // ctx.textBaseline = "middle";
+    // ctx.fillText("Конец игры", width / 2, height / 2);
+    // ctx.font = "20px Arial";
+    // ctx.fillText("Чтобы сыграть ещё раз,", width / 2, height / 2 + 70);
+    // ctx.fillText("просто, перезагрузите страницу", width / 2, height / 2 + 100);
+    // ctx.globalCompositeOperation='destination-over';
 };
 
     
@@ -267,13 +274,24 @@ btnStart.addEventListener('click', () =>{
     startWrap.classList.add('deactive');    
     gameLoop();
 });
+let btnGameOver = document.querySelector('.game-over-btn');
+let gameOverWrap = document.querySelector('.game-over-wrap');    
+btnGameOver.addEventListener('click', () => {
+    location.reload();    
+});
+
 
 document.querySelector("body").addEventListener('keydown', funcStart = (event) => {    
     if (event.code === 'Enter') {
         startWrap.classList.add('deactive');
         document.querySelector("body").removeEventListener('keydown', funcStart);
         gameLoop();            
-    };        
+    };    
+});
+document.querySelector("body").addEventListener('keydown', (event) => {    
+    if (event.code === 'Enter' && gameOverValue === true) {
+        location.reload();
+    } 
 });
 
 //  Назначаем переменные для кнопок управления одной рукой
@@ -322,9 +340,12 @@ funcGame = (e) => {
         snake.setDirection(e);
     }	
 }
+speedUp = (e) => {
+    e -= 10;
+}
 document.querySelector("body").addEventListener('keydown', (event) => {
     var newDirection = directions[event.code];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
-    funcGame(newDirection);    		
+    funcGame(newDirection);    
 });
 
 btnStop.addEventListener('click', () => {
