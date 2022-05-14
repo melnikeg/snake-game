@@ -153,7 +153,7 @@ Snake.prototype.move = function () {
         ctx.font = "bold 60px arial";
         ctx.fillStyle = "Green";
         ctx.textAlign = "center";
-        ctx.textBaseline = "middle";        
+        ctx.textBaseline = "middle";                    
         ctx.fillText("Пауза", width / 2, height / 2 - 50);			
         ctx.font = "20px Arial";
         ctx.fillText("Для продолжения жмите стрелки, пробел", width / 2, height / 2);
@@ -272,7 +272,8 @@ function gameLoop() {
 let btnStart = document.querySelector('.start-btn');
 let startWrap = document.querySelector('.start-wrap');
 btnStart.addEventListener('click', () =>{
-    startWrap.classList.add('deactive');    
+    startWrap.classList.add('deactive');
+    gameStartValue = true;   
     gameLoop();
 });
 let btnGameOver = document.querySelector('.game-over-btn');
@@ -282,10 +283,12 @@ btnGameOver.addEventListener('click', () => {
 });
 
 
+var gameStartValue;
 document.querySelector("body").addEventListener('keydown', funcStart = (event) => {    
     if (event.code === 'Enter') {
         startWrap.classList.add('deactive');
         document.querySelector("body").removeEventListener('keydown', funcStart);
+        gameStartValue = true;
         gameLoop();            
     };    
 });
@@ -345,8 +348,10 @@ speedUp = (e) => {
     e -= 10;
 }
 document.querySelector("body").addEventListener('keydown', (event) => {
-    var newDirection = directions[event.code];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
-    funcGame(newDirection);    
+    if (gameStartValue === true) {
+        var newDirection = directions[event.code];// для упраления с кнопок на странице нужно добавить условие сюда и написать функцию обработки нажатия на кнопки управления
+        funcGame(newDirection);
+    }    
 });
 
 btnStop.addEventListener('click', () => {
