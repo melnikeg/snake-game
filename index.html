@@ -11,6 +11,16 @@
 <body>    
     <div class="wrapper">
         <div class="container">
+            <header class="header">
+                <div class="header__text">
+                    <span>з</span>
+                    <span>м</span>
+                    <span>е</span>
+                    <span>й</span>
+                    <span>к</span>
+                    <span>а</span>                    
+                </div>
+            </header>
             <main class="content">
                 <div class="start-wrap">
                     <div class="start-window">
@@ -23,49 +33,49 @@
                         </div>
                         <div class="start-btn">ПОЕХАЛИ!</div>
                     </div>            
-                </div>        
-                <canvas id="canvas" width="500" height="500"></canvas>
-                <div class="control__select">
-                    <div class="control__btn-one-hand btn__hand-control control__btn-one-hand_active">одной рукой</div>
-                    <div class="control__title">управление</div>
-                    <div class="control__btn-two-hand btn__hand-control">двумя руками</div>
                 </div>
-                <div class="control__body-one-hand active">            
-                    <div class="control__row">
-                        <div class="control__btn btn-left btn-arrow"></div>
-                    </div>
-                    <div class="control__row">
-                        <div class="control__btn btn-top btn-arrow"></div>
-                        <div class="control__btn btn-stop"></div>
-                        <div class="control__btn btn-bottom btn-arrow"></div>
-                    </div>
-                    <div class="control__row">
-                        <div class="control__btn btn-right btn-arrow"></div>
-                    </div>             
-                </div>
-                <div class="control__body-two-hand">
-                    <div class="control__row">
-                        <div class="control__btn btn-left btn-arrow control__btn_two-hand-control btn-left-copy"></div>
-                        <div class="control__btn btn-right btn-arrow control__btn_two-hand-control btn-right-copy"></div>
-                    </div>
-                    <div class="control__row">                
-                        <div class="control__btn btn-stop btn-stop__two-hand-control btn-stop-copy"></div>                
-                    </div>
-                    <div class="control__row">
-                        <div class="control__btn btn-top btn-arrow control__btn_two-hand-control btn-top-copy"></div>
-                        <div class="control__btn btn-bottom btn-arrow control__btn_two-hand-control btn-bottom-copy"></div>
-                    </div>      
-                </div>            
                 <div class="game-over-wrap deactive">
                     <div class="game-over-window start-window">
-                        <div class="game-over-text start-text">
-                            <!-- <p>КОНЕЦ ИГРЫ</p>
-                            <p>вы врезались в стену или</p>                    
-                            <p>укусили себя за хвост</p>                     -->
-                        </div>
+                        <div class="game-over-text start-text"></div>
                         <div class="game-over-btn">ИГРАТЬ СНОВА</div>
                     </div>           
-                </div>
+                </div>        
+                <canvas id="canvas" width="500" height="500"></canvas>
+                <nav class="nav">
+                    <div class="control__select">
+                        <div class="control__btn-one-hand btn__hand-control control__btn-one-hand_active">одной рукой</div>
+                        <div class="control__title">управление</div>
+                        <div class="control__btn-two-hand btn__hand-control">двумя руками</div>
+                    </div> 
+                    <div class="control__wrap">
+                        <div class="control__body-one-hand active">            
+                            <div class="control__row">
+                                <div class="control__btn btn-left btn-arrow"></div>
+                            </div>
+                            <div class="control__row">
+                                <div class="control__btn btn-top btn-arrow"></div>
+                                <div class="control__btn btn-stop"></div>
+                                <div class="control__btn btn-bottom btn-arrow"></div>
+                            </div>
+                            <div class="control__row">
+                                <div class="control__btn btn-right btn-arrow"></div>
+                            </div>             
+                        </div>
+                        <div class="control__body-two-hand">
+                            <div class="control__row">
+                                <div class="control__btn btn-left btn-arrow control__btn_two-hand-control btn-left-copy"></div>
+                                <div class="control__btn btn-right btn-arrow control__btn_two-hand-control btn-right-copy"></div>
+                            </div>
+                            <div class="control__row">                
+                                <div class="control__btn btn-stop btn-stop__two-hand-control btn-stop-copy"></div>                
+                            </div>
+                            <div class="control__row">
+                                <div class="control__btn btn-top btn-arrow control__btn_two-hand-control btn-top-copy"></div>
+                                <div class="control__btn btn-bottom btn-arrow control__btn_two-hand-control btn-bottom-copy"></div>
+                            </div>      
+                        </div>
+                    </div>              
+                </nav>               
             </main>
             <footer class="footer">
                 <div class="rules">

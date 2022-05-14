@@ -150,13 +150,14 @@ Snake.prototype.move = function () {
         this.oldDirection = this.direction;			
     } else if (this.direction === "stop") {
         // Попытки сделать остановку анимации по нажатию на пробел						
-        ctx.font = "60px Arial";
-        ctx.fillStyle = "Black";
+        ctx.font = "bold 60px arial";
+        ctx.fillStyle = "Green";
         ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("Пауза", width / 2, height / 2);			
+        ctx.textBaseline = "middle";        
+        ctx.fillText("Пауза", width / 2, height / 2 - 50);			
         ctx.font = "20px Arial";
-        ctx.fillText("Для продолжения жмите стрелки или пробел", width / 2, height / 2 + 50);
+        ctx.fillText("Для продолжения жмите стрелки, пробел", width / 2, height / 2);
+        ctx.fillText("или кноки управления в мобильной версии", width / 2, height / 2 + 30);
         ctx.globalCompositeOperation='destination-over';			
         return;			
     } 
